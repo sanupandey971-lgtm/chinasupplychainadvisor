@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Contact China Supply Chain Advisor</title>
+
 <head>
 
 <title>Request Supplier Verification | China Supply Chain Advisor</title>
@@ -15,52 +14,49 @@
 <link rel="icon" href="/favicon.ico">
 
 </head>
+
 <body>
 
 <h1>Request Investigation</h1>
 
-<form action="https://formspree.io/f/xqeyeqvy" method="POST">
-
-<p>Company Name</p>
-<input type="text" name="company" required>
-
-<p>Supplier Name</p>
-<input type="text" name="supplier">
-
-<p>Email</p>
-<input type="email" name="email" required>
-
-<p>Investigation Requirement</p>
-<textarea name="requirement"></textarea>
-
-<br><br>
-<button type="submit">Submit Request</button>
-
-</form>
-
 <form>
 
-<!-- Direct Email Button -->
-<div style="text-align:center; margin-top:30px;">
+<p>Company Name</p>
+<input type="text">
 
-<a href="mailto:hong@chinasupplychainadvisor.com?subject=Supplier Investigation Request"
+<p>Supplier Name</p>
+<input type="text">
+
+<p>Email</p>
+<input type="email">
+
+<p>Investigation Requirement</p>
+<textarea></textarea>
+
+<br><br>
+
+<!-- Submit Button -->
+<button>Request Supplier Verification</button>
+
+<!-- Direct Email Button -->
+<a href="mailto:hong@chinasupplychainadvisor.com?subject=Supplier Verification Request"
 style="
 background-color:#f5a623;
 color:white;
-padding:14px 28px;
+padding:10px 22px;
 text-decoration:none;
-font-size:18px;
+font-size:16px;
 font-weight:bold;
 border-radius:6px;
+margin-left:10px;
 display:inline-block;
-transition:background-color 0.3s;
 ">
 
-Email Investigation Request
+Email Request
 
 </a>
 
-</div>
+</form>
 
 <!-- Back to Parent button -->
 <div style="text-align: center; margin: 20px 0 10px 0;">
@@ -88,16 +84,6 @@ Email Investigation Request
 
 <script>
 
-const emailBtn = document.querySelector('a[href^="mailto"]');
-
-emailBtn.onmouseover = () => {
-emailBtn.style.backgroundColor = '#e5941f';
-};
-
-emailBtn.onmouseout = () => {
-emailBtn.style.backgroundColor = '#f5a623';
-};
-
 const btn = document.querySelector('button[onclick]');
 
 btn.onmouseover = () => btn.style.backgroundColor = '#12325a';
@@ -106,4 +92,5 @@ btn.onmouseout = () => btn.style.backgroundColor = '#0b1f3a';
 </script>
 
 </body>
+
 </html>
