@@ -27,8 +27,6 @@
 
 </form>
 
-</body>
-</html>
 <!-- Direct Email Button -->
 <div style="text-align:center; margin-top:30px;">
 
@@ -51,17 +49,6 @@ Email Investigation Request
 
 </div>
 
-<script>
-const emailBtn = document.querySelector('a[href^="mailto"]');
-
-emailBtn.onmouseover = () => {
-emailBtn.style.backgroundColor = '#e5941f';
-};
-
-emailBtn.onmouseout = () => {
-emailBtn.style.backgroundColor = '#f5a623';
-};
-</script>
 <!-- Back to Parent button -->
 <div style="text-align: center; margin: 20px 0 10px 0;">
   <button onclick="
@@ -87,7 +74,23 @@ emailBtn.style.backgroundColor = '#f5a623';
 </div>
 
 <script>
-  const btn = document.querySelector('button[onclick]');
-  btn.onmouseover = () => btn.style.backgroundColor = '#12325a';
-  btn.onmouseout = () => btn.style.backgroundColor = '#0b1f3a';
+
+const emailBtn = document.querySelector('a[href^="mailto"]');
+
+emailBtn.onmouseover = () => {
+emailBtn.style.backgroundColor = '#e5941f';
+};
+
+emailBtn.onmouseout = () => {
+emailBtn.style.backgroundColor = '#f5a623';
+};
+
+const btn = document.querySelector('button[onclick]');
+
+btn.onmouseover = () => btn.style.backgroundColor = '#12325a';
+btn.onmouseout = () => btn.style.backgroundColor = '#0b1f3a';
+
 </script>
+
+</body>
+</html>
