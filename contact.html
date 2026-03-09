@@ -29,6 +29,39 @@
 
 </body>
 </html>
+<!-- Direct Email Button -->
+<div style="text-align:center; margin-top:30px;">
+
+<a href="mailto:hong@chinasupplychainadvisor.com?subject=Supplier Investigation Request"
+style="
+background-color:#f5a623;
+color:white;
+padding:14px 28px;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+border-radius:6px;
+display:inline-block;
+transition:background-color 0.3s;
+">
+
+Email Investigation Request
+
+</a>
+
+</div>
+
+<script>
+const emailBtn = document.querySelector('a[href^="mailto"]');
+
+emailBtn.onmouseover = () => {
+emailBtn.style.backgroundColor = '#e5941f';
+};
+
+emailBtn.onmouseout = () => {
+emailBtn.style.backgroundColor = '#f5a623';
+};
+</script>
 <!-- Back to Parent button -->
 <div style="text-align: center; margin: 20px 0 10px 0;">
   <button onclick="
