@@ -6,52 +6,88 @@
 <title>About China Supply Chain Advisor | Supplier & Factory Intelligence</title>
 <meta name="description" content="Learn about China Supply Chain Advisor: independent supplier investigation, factory verification, supply chain risk analysis, and project feasibility evaluation for global companies.">
 <meta name="keywords" content="China sourcing intelligence, China supplier investigation firm, China factory verification service, supply chain advisory China">
-<link rel="stylesheet" href="style.css">
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f8fb;
+  color:#1e293b;
+}
+
+.page{
+  max-width:920px;
+  margin:48px auto;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+  box-shadow:0 1px 2px rgba(15,23,42,.05);
+  padding:40px 28px;
+}
+
+h1{
+  margin:0 0 20px;
+  font-size:36px;
+}
+
+p{
+  color:#475569;
+  font-size:18px;
+  line-height:1.75;
+}
+
+footer{
+  margin-top:26px;
+  color:#64748b;
+  font-size:14px;
+}
+
+.back-wrap{
+  text-align:center;
+  margin:24px 0 14px;
+}
+
+.back-btn{
+  padding:12px 24px;
+  background-color:#0b1f3a;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:16px;
+  transition:background-color .2s;
+}
+</style>
 </head>
 <body>
-<header>
-<h1>About China Supply Chain Advisor</h1>
-</header>
+<main class="page">
+  <h1>About China Supply Chain Advisor</h1>
 
-<main>
-<section>
-<p>We are an independent investigation and intelligence advisory focused on Chinese suppliers, factories, and supply chains. Our mission is to help global companies verify suppliers, assess risks, and evaluate project feasibility before committing to sourcing or investment.</p>
+  <p>We are an independent investigation and intelligence advisory focused on Chinese suppliers, factories, and supply chains. Our mission is to help global companies verify suppliers, assess risks, and evaluate project feasibility before committing to sourcing or investment.</p>
 
-<p>Our team uses corporate registration data, legal records, industrial analysis, and field verification to provide actionable intelligence.</p>
-</section>
+  <p>Our team uses corporate registration data, legal records, industrial analysis, and field verification to provide actionable intelligence.</p>
+
+  <footer>© 2026 China Supply Chain Advisor</footer>
 </main>
 
-<footer>
-<p>© 2026 China Supply Chain Advisor</p>
-</footer>
-</body>
-</html>
 <!-- Back to Parent button -->
-<div style="text-align: center; margin: 20px 0 10px 0;">
-  <button onclick="
+<div class="back-wrap">
+  <button class="back-btn" onclick="
     (function(){
       let path = window.location.pathname;
       if(path.endsWith('/')) path = path.slice(0,-1);
       const parent = path.substring(0,path.lastIndexOf('/'));
-      window.location.href = parent === '' ? '/index.html' : parent + '/';
+      window.location.href = parent === '' ? '/index.html' : parent + '/index.html';
     })()
-  " style="
-    padding: 12px 24px;
-    background-color: #0b1f3a;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
   ">
     ← Back to Parent
   </button>
 </div>
 
 <script>
-  const btn = document.querySelector('button[onclick]');
+  const btn = document.querySelector('.back-btn');
   btn.onmouseover = () => btn.style.backgroundColor = '#12325a';
   btn.onmouseout = () => btn.style.backgroundColor = '#0b1f3a';
 </script>
+</body>
+</html>

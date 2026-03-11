@@ -2,110 +2,124 @@
 <html lang="en">
 
 <head>
-
 <title>Request Supplier Verification | China Supply Chain Advisor</title>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <meta name="description" content="Request supplier verification or factory investigation in China. Independent investigation for international buyers.">
-
 <link rel="icon" href="/favicon.ico">
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f8fb;
+  color:#1e293b;
+}
 
+.wrapper{
+  max-width:760px;
+  margin:48px auto;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+  box-shadow:0 1px 2px rgba(15,23,42,.05);
+  padding:34px 26px;
+}
+
+h1{margin-top:0;font-size:34px;}
+label{display:block;margin-top:14px;font-weight:600;color:#334155;}
+input,textarea{
+  width:100%;
+  margin-top:6px;
+  padding:10px 12px;
+  border:1px solid #cbd5e1;
+  border-radius:8px;
+  font-size:15px;
+  box-sizing:border-box;
+}
+
+textarea{min-height:120px;resize:vertical;}
+
+.button-row{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;}
+
+.cta{
+  background-color:#0b1f3a;
+  color:#fff;
+  padding:10px 22px;
+  border:none;
+  font-size:16px;
+  font-weight:bold;
+  border-radius:8px;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.cta.secondary{
+  background:#fff;
+  color:#0f172a;
+  border:1px solid #cbd5e1;
+}
+
+.trust{font-size:13px;color:#64748b;margin-top:12px;line-height:1.5;}
+
+.back-wrap{text-align:center;margin:22px 0 12px;}
+.back-btn{
+  padding:12px 24px;
+  background-color:#0b1f3a;
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:16px;
+}
+</style>
 </head>
 
 <body>
-
+<div class="wrapper">
 <h1>Request Investigation</h1>
 
 <form action="https://formspree.io/f/xqeyeqvy" method="POST">
+<label>Company Name
+<input type="text" name="company"></label>
 
-<p>Company Name</p>
-<input type="text" name="company">
+<label>Supplier Name
+<input type="text" name="supplier"></label>
 
-<p>Supplier Name</p>
-<input type="text" name="supplier">
+<label>Email
+<input type="email" name="email"></label>
 
-<p>Email</p>
-<input type="email" name="email">
+<label>Investigation Requirement
+<textarea name="requirement"></textarea></label>
 
-<p>Investigation Requirement</p>
-<textarea name="requirement"></textarea>
+<div class="button-row">
+<button class="cta">Request Supplier Verification</button>
+<a class="cta secondary" href="mailto:hong@chinasupplychainadvisor.com?subject=Supplier Verification Request">Email Request</a>
+</div>
 
-<br><br>
-
-<!-- Submit Button -->
-<button style="
-background-color:#f5a623;
-color:white;
-padding:10px 22px;
-border:none;
-font-size:16px;
-font-weight:bold;
-border-radius:6px;
-cursor:pointer;
-">
-Request Supplier Verification
-</button>
-
-<!-- Direct Email Button -->
-<a href="mailto:hong@chinasupplychainadvisor.com?subject=Supplier Verification Request"
-style="
-background-color:#f5a623;
-color:white;
-padding:10px 22px;
-text-decoration:none;
-font-size:16px;
-font-weight:bold;
-border-radius:6px;
-margin-left:10px;
-display:inline-block;
-">
-
-Email Request
-
-</a>
-
-<!-- Trust text -->
-<p style="font-size:13px;color:#666;margin-top:10px;">
-All inquiries are confidential.<br>
-We respond within 24 hours.
-</p>
-
+<p class="trust">All inquiries are confidential.<br>We respond within 24 hours.</p>
 </form>
+</div>
 
 <!-- Back to Parent button -->
-<div style="text-align: center; margin: 20px 0 10px 0;">
-  <button onclick="
+<div class="back-wrap">
+  <button class="back-btn" onclick="
     (function(){
       let path = window.location.pathname;
       if(path.endsWith('/')) path = path.slice(0,-1);
       const parent = path.substring(0,path.lastIndexOf('/'));
-      window.location.href = parent === '' ? '/index.html' : parent + '/';
+      window.location.href = parent === '' ? '/index.html' : parent + '/index.html';
     })()
-  " style="
-    padding: 12px 24px;
-    background-color: #0b1f3a;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
   ">
     ← Back to Parent
   </button>
 </div>
 
 <script>
-
-const btn = document.querySelector('button[onclick]');
-
+const btn = document.querySelector('.back-btn');
 btn.onmouseover = () => btn.style.backgroundColor = '#12325a';
 btn.onmouseout = () => btn.style.backgroundColor = '#0b1f3a';
-
 </script>
 
 </body>

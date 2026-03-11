@@ -9,40 +9,127 @@
 <title>China Supply Chain Advisor</title>
 
 <style>
+:root{
+    --bg:#f7f8fb;
+    --nav:#ffffff;
+    --nav-2:#ffffff;
+    --accent:#ff7a18;
+    --accent-hover:#e76500;
+    --text:#1e293b;
+    --muted:#64748b;
+    --card:#ffffff;
+}
+
+*{box-sizing:border-box;}
+
 body{
-    font-family:Arial;
+    font-family:Arial,Helvetica,sans-serif;
     margin:0;
-    background:#f5f7fb;
+    background:var(--bg);
+    color:var(--text);
+}
+
+.nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    width:100%;
+    background:#ffffff;
+    padding:14px 20px;
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    flex-wrap:wrap;
+    box-shadow:0 1px 0 rgba(15,23,42,.08);
+}
+
+.nav a{
+    color:#0f172a;
+    text-decoration:none;
+    font-weight:500;
+    font-size:15px;
+}
+
+.nav a:hover{
+    color:#0b1f3a;
 }
 
 .hero{
-    background:#0b1f3a;
-    color:white;
-    padding:100px 20px;
+    background:#eef3fb;
+    color:#0f172a;
+    padding:96px 20px 88px;
     text-align:center;
 }
 
 .hero h1{
-    font-size:46px;
+    margin:0;
+    font-size:44px;
+    letter-spacing:.4px;
+}
+
+.hero .sub{
+    max-width:820px;
+    margin:20px auto 0;
+    font-size:20px;
+    line-height:1.6;
+    color:#475569;
+}
+
+.hero-buttons{
+    margin-top:36px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
 }
 
 .cta{
-    background:#ff7a18;
-    color:white;
+    background:#0b1f3a;
+    color:#ffffff;
     padding:14px 30px;
     text-decoration:none;
-    border-radius:6px;
+    border-radius:8px;
     font-weight:bold;
     display:inline-block;
+    transition:all .2s ease;
+}
+
+.cta:hover{
+    background:#102a4d;
+    color:#ffffff;
+    transform:translateY(-1px);
+}
+
+.cta.secondary{
+    background:#ffffff;
+    border:1px solid #cbd5e1;
+    color:#0f172a;
+}
+
+.cta.secondary:hover{
+    background:#f8fafc;
 }
 
 .section{
-    padding:70px 20px;
+    padding:72px 20px;
 }
 
 .container{
     max-width:1100px;
     margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin:0 0 12px;
+    font-size:34px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:var(--muted);
+    margin:0 0 36px;
+    font-size:18px;
 }
 
 .grid{
@@ -52,10 +139,40 @@ body{
 }
 
 .card{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    background:var(--card);
+    padding:26px;
+    border-radius:14px;
+    border:1px solid #e2e8f0;
+    box-shadow:0 1px 2px rgba(15,23,42,.05);
+}
+
+.card h3{margin-top:0;}
+.card p{margin-bottom:0; color:#4b5563; line-height:1.6;}
+
+.band{
+    background:#ffffff;
+    border-top:1px solid #e7ebf2;
+    border-bottom:1px solid #e7ebf2;
+}
+
+.contact-band{
+    background:#0b1f3a;
+    color:#ffffff;
+    text-align:center;
+}
+
+.footer-nav{
+    padding:22px 20px;
+    background:#ffffff;
+    text-align:center;
+}
+
+.footer-nav a{
+    color:#0f172a;
+    margin:0 10px;
+    text-decoration:none;
+    display:inline-block;
+    padding:4px 0;
 }
 </style>
 
@@ -63,72 +180,66 @@ body{
 
 <body>
 
-<!-- 修复问题1: 把 nav 放到 body 内 -->
-<nav style="position:fixed; top:0; left:0; width:100%; background:#0b1f3a; padding:12px 20px;">
-<a href="index.html" style="color:white; margin-right:20px;">Home</a>
-<a href="about.html" style="color:white; margin-right:20px;">About</a>
-<a href="/services/" style="color:white; margin-right:20px;">Services</a>
-<a href="/insights/" style="color:white; margin-right:20px;">Insights</a>
-<a href="case-studies.html" style="color:white; margin-right:20px;">Case Studies</a>
-<a href="contact.html" style="color:white;">Contact</a>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="/services/">Services</a>
+<a href="/insights/">Insights</a>
+<a href="case-studies.html">Case Studies</a>
+<a href="contact.html">Contact</a>
 </nav>
 
 <div class="hero">
 <h1>China Supplier Due Diligence</h1>
-<p>Independent investigation and risk analysis of Chinese suppliers.Independent China Supplier Verification
-Avoid Fake Chinese Factories Before You Pay</p>
-<br>
+<p class="sub">Independent investigation and risk analysis of Chinese suppliers. Independent supplier verification to help you avoid fake factories before you pay.</p>
 <div class="hero-buttons">
 <a class="cta" href="/risk-check.html">Free Supplier Risk Check</a>
-<a class="cta" href="/services/" style="margin-left:10px;">Explore Our Services</a>
+<a class="cta secondary" href="/services/">Explore Our Services</a>
 </div>
 </div>
 
-<div class="section">
+<section class="section">
 <div class="container">
-<h2 style="text-align:center">Why International Buyers Work With Us</h2>
+<h2 class="section-title">Why International Buyers Work With Us</h2>
+<p class="section-subtitle">A structured approach for supplier verification and procurement risk control.</p>
 <div class="grid">
 <div class="card">
 <h3>Independent Investigation</h3>
-<p>We independently verify suppliers instead of relying on marketing claims.</p>
+<p>We verify suppliers independently instead of relying on self-reported marketing claims.</p>
 </div>
 <div class="card">
 <h3>Structured Due Diligence</h3>
-<p>Our investigation follows a professional 25-point framework.</p>
+<p>Our investigation follows a practical 25-point framework used in real sourcing decisions.</p>
 </div>
 <div class="card">
 <h3>Risk-Focused Analysis</h3>
-<p>We identify operational and financial risks before procurement decisions.</p>
+<p>We flag operational and financial warning signs before large orders are placed.</p>
 </div>
 </div>
 </div>
-</div>
+</section>
 
-<div class="section" style="background:#ffffff">
-<div class="container">
-<h2 style="text-align:center">Supply Chain Risk Insights</h2>
-<p style="text-align:center">Research and analysis on China manufacturing risks.</p>
-<p style="text-align:center">
+<section class="section band">
+<div class="container" style="text-align:center;">
+<h2 class="section-title">Supply Chain Risk Insights</h2>
+<p class="section-subtitle">Research and analysis on China manufacturing risks, supplier behavior, and procurement strategy.</p>
 <a class="cta" href="/insights/">Read Insights</a>
-</p>
 </div>
-</div>
+</section>
 
-<div class="section" style="background:#0b1f3a;color:white;text-align:center">
-<h2>Need to Verify a Chinese Supplier?</h2>
-<p>Contact us to discuss supplier investigation.</p>
-<br>
+<section class="section contact-band">
+<h2 class="section-title" style="color:#0f172a;">Need to Verify a Chinese Supplier?</h2>
+<p class="section-subtitle" style="color:#475569;">Contact us to discuss supplier investigation, factory verification, and risk analysis.</p>
 <a class="cta" href="contact.html">Contact Us</a>
-</div>
+</section>
 
-<!-- 原页尾 nav -->
-<nav style="padding:20px; background:#0a2540; color:white;">
-<a href="index.html" style="color:white; margin-right:20px;">Home</a>
-<a href="about.html" style="color:white; margin-right:20px;">About</a>
-<a href="/services/" style="color:white; margin-right:20px;">Services</a>
-<a href="/insights/" style="color:white; margin-right:20px;">Insights</a>
-<a href="case-studies.html" style="color:white; margin-right:20px;">Case Studies</a>
-<a href="contact.html" style="color:white;">Contact</a>
+<nav class="footer-nav">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="/services/">Services</a>
+<a href="/insights/">Insights</a>
+<a href="case-studies.html">Case Studies</a>
+<a href="contact.html">Contact</a>
 </nav>
 
 </body>
