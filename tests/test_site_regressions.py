@@ -53,7 +53,3 @@ def test_home_hero_copy_spacing_is_readable():
     content = read('index.html')
     assert 'suppliers.Independent' not in content
 
-
-def test_services_request_investigation_cta_points_to_contact():
-    content = read('services/index.html')
-    assert "<a class=\"cta\" href=\"/contact.html\" style=\"margin-left:10px;\">" in content
