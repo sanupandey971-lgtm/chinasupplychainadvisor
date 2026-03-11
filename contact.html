@@ -82,7 +82,7 @@ We respond within 24 hours.
       let path = window.location.pathname;
       if(path.endsWith('/')) path = path.slice(0,-1);
       const parent = path.substring(0,path.lastIndexOf('/'));
-      window.location.href = parent === '' ? '/index.html' : parent + '/';
+      window.location.href = parent === '' ? '/index.html' : parent + '/index.html';
     })()
   " style="
     padding: 12px 24px;

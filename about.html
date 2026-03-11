@@ -24,8 +24,7 @@
 <footer>
 <p>© 2026 China Supply Chain Advisor</p>
 </footer>
-</body>
-</html>
+
 <!-- Back to Parent button -->
 <div style="text-align: center; margin: 20px 0 10px 0;">
   <button onclick="
@@ -33,7 +32,7 @@
       let path = window.location.pathname;
       if(path.endsWith('/')) path = path.slice(0,-1);
       const parent = path.substring(0,path.lastIndexOf('/'));
-      window.location.href = parent === '' ? '/index.html' : parent + '/';
+      window.location.href = parent === '' ? '/index.html' : parent + '/index.html';
     })()
   " style="
     padding: 12px 24px;
@@ -55,3 +54,5 @@
   btn.onmouseover = () => btn.style.backgroundColor = '#12325a';
   btn.onmouseout = () => btn.style.backgroundColor = '#0b1f3a';
 </script>
+</body>
+</html>
