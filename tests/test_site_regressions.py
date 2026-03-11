@@ -52,3 +52,4 @@ def test_risk_check_back_link_uses_local_route_and_defined_style():
 def test_home_hero_copy_spacing_is_readable():
     content = read('index.html')
     assert 'suppliers.Independent' not in content
+
