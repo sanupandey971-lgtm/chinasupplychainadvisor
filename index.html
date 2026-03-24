@@ -53,11 +53,17 @@ body{
     position:absolute;
     width:100%;
     height:100%;
+
     background:
-        linear-gradient(rgba(15,23,42,0.4), rgba(15,23,42,0.6)),
+        linear-gradient(
+            rgba(255,255,255,0.15),
+            rgba(15,23,42,0.25)
+        ),
         url("./bg.jpg") center/cover no-repeat;
-    filter: blur(8px) brightness(0.9);
-    transform:scale(1.08);
+
+    filter: blur(3px) brightness(1.05) saturate(1.1);
+
+    transform:scale(1.05);
 }
 
 /* 🔥 去掉脏灰遮罩（这是你之前难看的原因） */
@@ -66,7 +72,12 @@ body{
     position:absolute;
     width:100%;
     height:100%;
-    background:transparent;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.05),
+        rgba(15,23,42,0.3)
+    );
 }
 
 .hero-inner{
