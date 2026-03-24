@@ -56,16 +56,18 @@ body{
 
     background:
         linear-gradient(
-            rgba(255,255,255,0.15),
-            rgba(15,23,42,0.25)
+            to right,
+            rgba(255,255,255,0.85) 0%,
+            rgba(255,255,255,0.6) 35%,
+            rgba(255,255,255,0.2) 60%,
+            rgba(255,255,255,0) 100%
         ),
         url("./bg.jpg") center/cover no-repeat;
 
-    filter: blur(3px) brightness(1.05) saturate(1.1);
+    filter: blur(2px) brightness(1.05);
 
-    transform:scale(1.05);
+    transform:scale(1.03);
 }
-
 /* 🔥 去掉脏灰遮罩（这是你之前难看的原因） */
 .hero::after{
     content:"";
@@ -76,7 +78,7 @@ body{
     background:linear-gradient(
         to bottom,
         rgba(255,255,255,0.05),
-        rgba(15,23,42,0.3)
+        rgba(15,23,42,0.25)
     );
 }
 
