@@ -1,325 +1,316 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>China Supply Chain Advisor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Supply Chain Advisor</title>
+    <link rel="icon" href="favicon-32x32.png">
 
-<link rel="icon" href="favicon-32x32.png">
+    <style>
+        /* ================= 基础重置 ================= */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f7fa;
+            color: #1e293b;
+        }
 
-<style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#f7f8fb;
-}
+        /* ================= 导航栏 (NAV) ================= */
+        .nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 40px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+        }
 
-/* NAV */
-.nav{
-    background:#fff;
-    padding:14px 20px;
-    display:flex;
-    gap:18px;
-    align-items:center;
-    flex-wrap:wrap;
-    box-shadow:0 1px 0 rgba(0,0,0,0.05);
-}
+        .nav a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
 
-.nav a{
-    text-decoration:none;
-    color:#111;
-}
+        .nav a:hover {
+            color: #ff7a18;
+        }
 
-.nav .cta-nav{
-    margin-left:auto;
-    background:#ff7a18;
-    color:#fff;
-    padding:8px 14px;
-    border-radius:6px;
-}
+        .nav .cta-nav {
+            margin-left: auto;
+            background: #ff7a18;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(255, 122, 24, 0.3);
+        }
 
-/* HERO */
-.hero{
-    position:relative;
-    color:#fff;
-    padding:120px 20px;
-    overflow:hidden;
-}
+        /* ================= 英雄区 (HERO) ================= */
+        .hero {
+            position: relative;
+            padding: 140px 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 500px;
+        }
 
-/* 🔥 核心：高级背景（你要的效果） */
-.hero::before{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
+        /* 核心：高级背景处理 - 模拟预览图效果 */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* 关键渐变：左侧深色便于读字，右侧透明展示港口 */
+            background: 
+                linear-gradient(
+                    90deg, 
+                    rgba(15, 23, 42, 0.9) 0%, 
+                    rgba(15, 23, 42, 0.6) 40%, 
+                    rgba(15, 23, 42, 0.1) 100%
+                ),
+                url("./bg.jpg") center/cover no-repeat;
+            z-index: 1;
+        }
 
-    background:
-        linear-gradient(
-            to right,
-            rgba(255,255,255,0.85) 0%,
-            rgba(255,255,255,0.6) 35%,
-            rgba(255,255,255,0.2) 60%,
-            rgba(255,255,255,0) 100%
-        ),
-        url("./bg.jpg") center/cover no-repeat;
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
 
-    filter: blur(2px) brightness(1.05);
+        .hero-text {
+            max-width: 650px;
+        }
 
-    transform:scale(1.03);
-}
-/* 🔥 去掉脏灰遮罩（这是你之前难看的原因） */
-.hero::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 800; /* 极粗标题 */
+            line-height: 1.2;
+            margin: 0;
+            color: #ffffff;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+        }
 
-    background:linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.05),
-        rgba(15,23,42,0.25)
-    );
-}
+        .hero-text p {
+            margin-top: 25px;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #f1f5f9 !important; /* 修正：强制浅白色 */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* 防撞色投影 */
+            max-width: 550px;
+        }
 
-.hero-inner{
-    position:relative;
-    z-index:2;
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:40px;
-    flex-wrap:wrap;
-}
+        .hero-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+        }
 
-.hero-text{
-    max-width:520px;
-}
+        .cta {
+            background: #ff7a18;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(255, 122, 24, 0.3);
+        }
 
-.hero-text h1{
-    font-size:40px;
-    margin:0;
-}
-.hero-text h1{
-    color:#111;
-}
-.hero-text p{
-    .hero-subtitle {
-    /* 直接强制改为纯白色 */
-    color: #FFFFFF !important; 
-    
-    /* 核心：添加极细的深色阴影，防止在亮部看不见 */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); 
-}
-}
-.hero-text p{
-    margin-top:20px;
-    font-size:18px;
-    color:#e2e8f0;
-}
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(255, 122, 24, 0.4);
+        }
 
-/* 🔥 强化你那句卖点 */
-.hero-highlight{
-    font-size:20px;
-    font-weight:600;
-    color:#ff7a18;
-    margin-top:15px;
-}
+        .cta.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+        }
 
-.hero-buttons{
-    margin-top:30px;
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
+        .cta.secondary:hover {
+            background: #fff;
+            color: #111;
+        }
 
-.cta{
-    background:#ff7a18;
-    color:#fff;
-    padding:14px 26px;
-    border-radius:8px;
-    text-decoration:none;
-}
+        .hero-img img {
+            max-width: 320px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
 
-.cta.secondary{
-    background:#fff;
-    color:#111;
-}
+        /* ================= 业务优势区 ================= */
+        .section {
+            padding: 100px 20px;
+            text-align: center;
+        }
 
-/* MOBILE */
-@media (max-width:768px){
-    .hero-buttons{
-        flex-direction:column;
-        align-items:stretch;
-    }
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #0f172a;
+        }
 
-    .cta{
-        width:100%;
-        text-align:center;
-    }
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-/* LOGO */
-.hero-img img{
-    max-width:260px;
-    border-radius:12px;
-}
+        .card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s;
+        }
 
-/* SECTION */
-.section{
-    padding:70px 20px;
-    text-align:center;
-}
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    max-width:1100px;
-    margin:auto;
-}
+        .card h3 { color: #ff7a18; margin-bottom: 15px; }
 
-.card{
-    background:#fff;
-    padding:25px;
-    border-radius:10px;
-    border:1px solid #eee;
-}
+        /* ================= 悬浮卡片 (FLOATING CARD) ================= */
+        .floating-footer-card {
+            margin: -50px auto 80px;
+            width: 90%;
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
 
-/* 🔥 高级玻璃卡片 */
-.floating-footer-card {
-    margin: -60px auto 60px;
-    width: 90%;
-    max-width: 900px;
+        .footer-brand img { height: 70px; margin-bottom: 15px; }
+        .footer-brand p { margin: 5px 0; color: #64748b; font-size: 14px; }
 
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+        .footer-links h4 { margin-bottom: 20px; color: #0f172a; }
+        .footer-links a {
+            display: block;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: #475569;
+            font-size: 14px;
+        }
 
-    border-radius: 20px;
-    border:1px solid rgba(255,255,255,0.6);
+        /* ================= 页脚 (FOOTER) ================= */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+        }
 
-    padding: 30px 40px;
+        .footer img { width: 60px; margin-bottom: 20px; opacity: 0.8; }
+        .footer p { color: #94a3b8; font-size: 13px; }
 
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-.footer-brand img{
-    height:60px;
-}
-
-.footer-links a{
-    display:block;
-    margin-bottom:8px;
-    text-decoration:none;
-    color:#475569;
-}
-
-.footer-links a:hover{
-    color:#ff7a18;
-}
-
-/* FOOTER */
-.footer{
-    text-align:center;
-    padding:40px;
-    background:#fff;
-}
-
-.footer img{
-    width:70px; /* ✅ 已帮你改小 */
-}
-</style>
-
+        /* ================= 响应式调整 ================= */
+        @media (max-width: 992px) {
+            .hero-inner { flex-direction: column; text-align: center; }
+            .hero-text { max-width: 100%; }
+            .hero-buttons { justify-content: center; }
+            .floating-footer-card { flex-direction: column; text-align: center; padding: 40px; }
+            .hero::before { background: linear-gradient(180deg, rgba(15,23,42,0.8) 0%, rgba(15,23,42,0.4) 100%), url("./bg.jpg") center/cover; }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="nav">
-<a href="/">Home</a>
-<a href="/services/">Services</a>
-<a href="/risk-check.html">Supplier Risk Check</a>
-<a href="/case-studies.html">Case Studies</a>
-<a href="/report-sample.html">Report Sample</a>
-<a href="/insights/">Insights</a>
-<a href="/contact.html">Contact</a>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/services/">Services</a>
+        <a href="/risk-check.html">Supplier Risk Check</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/report-sample.html">Report Sample</a>
+        <a href="/insights/">Insights</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/risk-check.html" class="cta-nav">Free Audit</a>
+    </div>
 
-<a href="/risk-check.html" class="cta-nav">Free Audit</a>
-</div>
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1>Verify Before You Pay: <br>Eliminate Costly Sourcing Mistakes.</h1>
+                <p>We help you uncover hidden risks, fake factories, and unreliable suppliers — before it costs you money.</p>
+                <div class="hero-buttons">
+                    <a class="cta" href="/risk-check.html">Get Free Supplier Risk Check</a>
+                    <a class="cta secondary" href="/services/">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="./website_logo.png" alt="China Supply Chain Advisor Logo">
+            </div>
+        </div>
+    </div>
 
-<div class="hero">
-<div class="hero-inner">
+    <div class="section">
+        <h2>Why Buyers Work With Us</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Independent Checks</h3>
+                <p>We verify suppliers beyond marketing claims.</p>
+            </div>
+            <div class="card">
+                <h3>Structured Process</h3>
+                <p>Clear due diligence framework.</p>
+            </div>
+            <div class="card">
+                <h3>Risk Detection</h3>
+                <p>Identify issues before orders.</p>
+            </div>
+        </div>
+    </div>
 
-<div class="hero-text">
+    <div class="floating-footer-card">
+        <div class="footer-brand">
+            <img src="./website_logo.png" alt="Logo">
+            <p><strong>Reduce Your China Sourcing Cost by 10–30%</strong></p>
+            <p>China Supply Chain Advisor</p>
+            <p>Email: Hong@chinasupplychainadvisor.com</p>
+        </div>
 
-<h1>Verify Before You Pay: Eliminate Costly Sourcing Mistakes.</h1>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="/">Supplier Risk Check</a>
+            <a href="/contact.html">Report Sample</a>
+            <a href="/services/">Services</a>
+            <a href="/contact.html">Case Studies</a>
+            <a href="/contact.html">Insights</a>
+        </div>
+    </div>
 
-<p>
-We help you uncover hidden risks, fake factories, and unreliable suppliers — before it costs you money.
-</p>
-
-<div class="hero-buttons">
-<a class="cta" href="/risk-check.html">Get Free Supplier Risk Check</a>
-<a class="cta secondary" href="/services/">Explore Services</a>
-</div>
-</div>
-
-<div class="hero-img">
-<img src="./website_logo.png">
-</div>
-
-</div>
-</div>
-
-<div class="section">
-<h2>Why Buyers Work With Us</h2>
-
-<div class="grid">
-<div class="card">
-<h3>Independent Checks</h3>
-<p>We verify suppliers beyond marketing claims.</p>
-</div>
-
-<div class="card">
-<h3>Structured Process</h3>
-<p>Clear due diligence framework.</p>
-</div>
-
-<div class="card">
-<h3>Risk Detection</h3>
-<p>Identify issues before orders.</p>
-</div>
-</div>
-</div>
-
-<div class="floating-footer-card">
-<div class="footer-brand">
-<img src="./website_logo.png">
-<p>Reduce Your China Sourcing Cost by 10–30% Without Changing Your Supplier</p>
-<p>China Supply Chain Advisor</p>
-<p>Email: Hong@chinasupplychainadvisor.com</p>
-</div>
-
-<div class="footer-links">
-<h4>Quick Links</h4>
-<a href="/">Supplier Risk Check</a>
-<a href="/contact.html">Report Sample</a> 
-<a href="/services/">Services</a>
-<a href="/contact.html">Case Studies</a>
-<a href="/contact.html">Insights</a>    
-</div>
-</div>
-
-<div class="footer">
-<img src="./website_logo.png">
-<p>© 2026 China Supply Chain Advisor</p>
-</div>
+    <div class="footer">
+        <img src="./website_logo.png" alt="Logo">
+        <p>© 2026 China Supply Chain Advisor</p>
+    </div>
 
 </body>
 </html>
