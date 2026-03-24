@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -47,22 +47,26 @@ body{
     overflow:hidden;
 }
 
+/* 🔥 核心：高级背景（你要的效果） */
 .hero::before{
     content:"";
     position:absolute;
     width:100%;
     height:100%;
-    background:url("./bg.jpg") center/cover no-repeat;
-    filter: blur(6px) brightness(0.8);
-    transform:scale(1.1);
+    background:
+        linear-gradient(rgba(15,23,42,0.4), rgba(15,23,42,0.6)),
+        url("./bg.jpg") center/cover no-repeat;
+    filter: blur(8px) brightness(0.9);
+    transform:scale(1.08);
 }
 
+/* 🔥 去掉脏灰遮罩（这是你之前难看的原因） */
 .hero::after{
     content:"";
     position:absolute;
     width:100%;
     height:100%;
-    background:rgba(10,20,40,0.6);
+    background:transparent;
 }
 
 .hero-inner{
@@ -89,9 +93,10 @@ body{
 .hero-text p{
     margin-top:20px;
     font-size:18px;
-    color:#dbeafe;
+    color:#e2e8f0;
 }
 
+/* 🔥 强化你那句卖点 */
 .hero-highlight{
     font-size:20px;
     font-weight:600;
@@ -123,7 +128,7 @@ body{
 @media (max-width:768px){
     .hero-buttons{
         flex-direction:column;
-        align-items:flex-start;
+        align-items:stretch;
     }
 
     .cta{
@@ -159,18 +164,25 @@ body{
     border:1px solid #eee;
 }
 
-/* FLOAT CARD */
+/* 🔥 高级玻璃卡片 */
 .floating-footer-card {
     margin: -60px auto 60px;
     width: 90%;
     max-width: 900px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(15px);
+
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
     border-radius: 20px;
+    border:1px solid rgba(255,255,255,0.6);
+
     padding: 30px 40px;
+
     display: flex;
     justify-content: space-between;
     gap: 30px;
+
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
@@ -197,7 +209,7 @@ body{
 }
 
 .footer img{
-    width:90px;
+    width:70px; /* ✅ 已帮你改小 */
 }
 </style>
 
@@ -222,6 +234,10 @@ body{
 
 <div class="hero-text">
 <h1>Verify Before You Pay: Eliminate Costly Sourcing Mistakes.</h1>
+
+<p class="hero-highlight">
+Reduce Your China Sourcing Cost by 10–30% Without Changing Your Supplier
+</p>
 
 <p>
 We help you uncover hidden risks, fake factories, and unreliable suppliers — before it costs you money.
