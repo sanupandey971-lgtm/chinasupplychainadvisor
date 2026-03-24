@@ -106,7 +106,13 @@ body{
     color:#111;
 }
 .hero-text p{
-    color:#334155;
+    .hero-subtitle {
+    /* 直接强制改为纯白色 */
+    color: #FFFFFF !important; 
+    
+    /* 核心：添加极细的深色阴影，防止在亮部看不见 */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); 
+}
 }
 .hero-text p{
     margin-top:20px;
