@@ -1,184 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index,follow">
     <title>China Supply Chain Advisor</title>
-
-    <link rel="icon" href="favicon-32x32.png">
-
     <style>
         :root {
-            --bg: #f7f8fb;
             --accent: #ff7a18;
-            --text: #1e293b;
-            --muted: #64748b;
-            --card: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #475569;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.5;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background: #f7f8fb;
+            overflow-x: hidden;
         }
 
-        /* 导航栏优化 */
+        /* 顶部导航：保持简洁，不抢视觉 */
         .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: #fff;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
-            width: 100%;
-            background: #ffffff;
-            padding: 15px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
         }
-
-        .nav-logo img { height: 40px; }
-
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-links a {
-            color: #0f172a;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+        .nav-logo img { height: 45px; display: block; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-size: 14px; font-weight: 500; }
         .nav-links a:hover { color: var(--accent); }
+        .cta-nav { background: var(--accent); color: #fff !important; padding: 10px 20px; border-radius: 6px; }
 
-        .nav .cta-nav {
-            background: var(--accent);
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        /* Hero 区域：带朦胧感背景 */
-        .hero-container {
+        /* Hero 容器：全屏背景 + 磨砂质感 */
+        .hero-section {
             position: relative;
             width: 100%;
-            min-height: 90vh;
+            min-height: 85vh;
             background: url('port-bg.jpg') no-repeat center center;
             background-size: cover;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 80px 5%;
+            justify-content: center;
+            padding: 60px 8%;
         }
 
-        /* 磨砂玻璃层 */
-        .hero-container::before {
+        /* 背景蒙层：实现设计稿的朦胧高级感 */
+        .hero-section::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.5); /* 浅色遮罩 */
+            backdrop-filter: blur(12px); /* 核心模糊效果 */
+            -webkit-backdrop-filter: blur(12px);
             z-index: 1;
         }
 
-        /* 内容主体：左文右图布局 */
-        .hero-inner {
+        /* 主体内容：左文右图，撑开空间 */
+        .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 50px;
-            margin-bottom: 60px;
+            gap: 40px;
+            margin-bottom: 50px;
         }
 
-        .hero-text { flex: 1.2; }
-        .hero-text h1 { font-size: 42px; line-height: 1.2; margin-bottom: 20px; color: #0f172a; }
-        .hero-text p { font-size: 18px; color: #475569; margin-bottom: 35px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 48px; line-height: 1.1; margin-bottom: 20px; color: #0f172a; }
+        .hero-text p { font-size: 20px; color: var(--text-light); margin-bottom: 30px; max-width: 500px; }
+        
+        .hero-img { flex: 1; text-align: right; }
+        .hero-img img { width: 100%; max-width: 450px; } /* 还原原稿无边框大Logo */
 
-        /* 右侧悬浮 Logo 卡片 */
-        .hero-img-box {
-            flex: 0.8;
-            background: #fff;
-            padding: 40px;
-            border-radius: 20px;
-            border: 2px solid var(--accent);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .hero-img-box img { width: 100%; max-width: 320px; }
-
-        .cta {
+        .cta-main {
             display: inline-block;
             background: var(--accent);
             color: #fff;
-            padding: 14px 28px;
+            padding: 16px 32px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 18px;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255,122,24,0.3);
         }
-        .cta:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,122,24,0.3); }
+        .cta-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255,122,24,0.4); }
 
-        /* 底部 Logo+Quick Links 组件 */
-        .quick-links-card {
+        /* 底部悬浮卡片：严控间距和对齐 */
+        .floating-footer-card {
             position: relative;
             z-index: 2;
-            max-width: 850px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 15px;
-            padding: 30px 40px;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 35px 50px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid rgba(255,255,255,0.5);
+            align-items: flex-start;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.6);
         }
 
-        .card-brand { flex: 1; }
-        .card-brand img { height: 70px; margin-bottom: 10px; }
-        .card-brand p { font-size: 13px; color: #64748b; }
+        .footer-brand { flex: 1; }
+        .footer-brand img { height: 65px; margin-bottom: 15px; }
+        .footer-brand p { font-size: 14px; color: var(--text-light); }
 
-        .card-nav {
-            border-left: 1px solid #e2e8f0;
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             padding-left: 50px;
+            border-left: 1px solid #e2e8f0;
         }
-        .card-nav h4 { font-size: 16px; margin-bottom: 15px; color: #0f172a; }
-        .card-nav ul { list-style: none; }
-        .card-nav ul li { margin-bottom: 8px; }
-        .card-nav ul li a {
-            text-decoration: none;
-            color: #1e293b;
-            font-size: 14px;
-            transition: 0.3s;
+        .footer-links h4 { font-size: 16px; margin-bottom: 5px; color: var(--text-dark); }
+        .footer-links a { 
+            text-decoration: none; 
+            color: var(--text-light); 
+            font-size: 14px; 
+            transition: 0.2s;
         }
-        /* 鼠标悬停变橙色逻辑 */
-        .card-nav ul li a:hover { color: var(--accent); font-weight: 600; padding-left: 5px; }
+        .footer-links a:hover { color: var(--accent); padding-left: 4px; }
 
-        /* 其他通用 Section */
-        .section { padding: 80px 20px; background: #fff; }
-        .container { max-width: 1100px; margin: auto; }
-        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; background: #fff; }
-
-        /* 响应式适配 */
-        @media (max-width: 850px) {
-            .hero-inner { flex-direction: column; text-align: center; }
-            .hero-img-box { width: 100%; }
-            .quick-links-card { flex-direction: column; gap: 30px; text-align: center; }
-            .card-nav { border-left: none; padding-left: 0; }
+        /* 响应式调整 */
+        @media (max-width: 968px) {
+            .hero-content { flex-direction: column; text-align: center; }
+            .hero-img { text-align: center; order: -1; }
+            .floating-footer-card { flex-direction: column; align-items: center; text-align: center; gap: 30px; }
+            .footer-links { border-left: none; padding-left: 0; }
+            .hero-text h1 { font-size: 32px; }
         }
     </style>
 </head>
-
 <body>
 
     <nav class="nav">
@@ -186,66 +150,39 @@
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/services/">Services</a>
-            <a href="/risk-check.html">Supplier Risk Check</a>
-            <a href="/insights/">Insights</a>
+            <a href="/about.html">About</a>
             <a href="/contact.html">Contact</a>
-            <a href="/risk-check.html" class="cta-nav">Free Audit</a>
+            <a href="/risk-check.html" class="cta-nav">Get Free Audit</a>
         </div>
     </nav>
 
-    <header class="hero-container">
-        <div class="hero-inner">
+    <section class="hero-section">
+        <div class="hero-content">
             <div class="hero-text">
-                <h1>Reduce Your China Sourcing Cost by 10–30% Without Changing Your Supplier</h1>
-                <p>We help international brands optimize suppliers, pricing, and quality in China with independent verification.</p>
-                <a class="cta" href="/risk-check.html">Get Free Supplier Risk Check</a>
+                <h1>Reduce Your China Sourcing Cost by 10–30%</h1>
+                <p>Without Changing Your Supplier. We help brands optimize quality and pricing in China.</p>
+                <a href="/risk-check.html" class="cta-main">Get Free Supplier Audit</a>
             </div>
-
-            <div class="hero-img-box">
+            <div class="hero-img">
                 <img src="website_logo.png" alt="China Supply Chain Advisor">
             </div>
         </div>
 
-        <div class="quick-links-card">
-            <div class="card-brand">
+        <div class="floating-footer-card">
+            <div class="footer-brand">
                 <img src="website_logo.png" alt="Footer Logo">
                 <p>Email: info@chinasupplychainadvisor.com</p>
+                <p style="margin-top:5px; font-size:12px;">© 2026 China Supply Chain Advisor</p>
             </div>
-            <div class="card-nav">
+            <div class="footer-links">
                 <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services/">Services</a></li>
-                    <li><a href="/insights/">Insights</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Why Buyers Work With Us</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Independent Checks</h3>
-                    <p>We verify suppliers beyond marketing claims to give you the truth.</p>
-                </div>
-                <div class="card">
-                    <h3>Structured Process</h3>
-                    <p>Our due diligence framework covers everything from assets to reputation.</p>
-                </div>
-                <div class="card">
-                    <h3>Risk Detection</h3>
-                    <p>We identify red flags before you send the deposit, protecting your capital.</p>
-                </div>
+                <a href="/">Home</a>
+                <a href="/services/">Services</a>
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
             </div>
         </div>
     </section>
-
-    <footer style="text-align: center; padding: 40px; background: #f8fafc; color: #94a3b8; font-size: 13px;">
-        <p>© 2026 China Supply Chain Advisor. chinasupplychainadvisor.com</p>
-    </footer>
 
 </body>
 </html>
