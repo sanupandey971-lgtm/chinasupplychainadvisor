@@ -1,535 +1,217 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
-
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="robots" content="index,follow">
-
-
-
 <title>China Supply Chain Advisor</title>
-
-
 
 <link rel="icon" href="favicon-32x32.png">
 
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-
-
-
 <style>
-
-:root{
-
-    --bg:#f7f8fb;
-
-    --accent:#ff7a18;
-
-    --text:#1e293b;
-
-    --muted:#64748b;
-
-    --card:#ffffff;
-
-}
-
-
-
-*{box-sizing:border-box;}
-
-
-
 body{
-
-    font-family:Arial,Helvetica,sans-serif;
-
     margin:0;
-
-    background:var(--bg);
-
-    color:var(--text);
-
+    font-family:Arial, sans-serif;
+    background:#f7f8fb;
 }
 
-
-
+/* NAV */
 .nav{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:100;
-
-    width:100%;
-
-    background:#ffffff;
-
+    background:#fff;
     padding:14px 20px;
-
     display:flex;
-
     gap:18px;
-
     align-items:center;
-
-    flex-wrap:wrap;
-
-    box-shadow:0 1px 0 rgba(15,23,42,.08);
-
+    box-shadow:0 1px 0 rgba(0,0,0,0.05);
 }
-
-
 
 .nav a{
-
-    color:#0f172a;
-
     text-decoration:none;
-
-    font-size:15px;
-
+    color:#111;
 }
-
-
 
 .nav .cta-nav{
-
     margin-left:auto;
-
     background:#ff7a18;
-
     color:#fff;
-
     padding:8px 14px;
-
     border-radius:6px;
-
 }
 
-
-
+/* HERO */
 .hero{
-
-.hero{
-
-    background:#eef3fb;
-
-    color:#0f172a;
-
-    padding:96px 20px 88px;
-
+    position:relative;
+    color:#fff;
+    padding:120px 20px;
+    overflow:hidden;
 }
 
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url("./bg.jpg") center/cover no-repeat;
+    filter:blur(5px);
+    transform:scale(1.1);
+}
 
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(10,20,40,0.6);
+}
 
 .hero-inner{
-
+    position:relative;
+    z-index:2;
     max-width:1100px;
-
     margin:auto;
-
     display:flex;
-
     align-items:center;
-
+    justify-content:space-between;
     gap:40px;
-
     flex-wrap:wrap;
-
 }
-
-
 
 .hero-text{
-
-    flex:1;
-
-    min-width:280px;
-
+    max-width:520px;
 }
-
-
 
 .hero-text h1{
-
-    font-size:38px;
-
+    font-size:40px;
     margin:0;
-
 }
-
-
 
 .hero-text p{
-
-    margin-top:16px;
-
+    margin-top:20px;
     font-size:18px;
-
-    color:#475569;
-
+    color:#dbeafe;
 }
-
-
 
 .hero-buttons{
-
-    margin-top:24px;
-
+    margin-top:30px;
 }
-
-
 
 .cta{
-
-    display:inline-block;
-
     background:#ff7a18;
-
     color:#fff;
-
-    padding:12px 22px;
-
+    padding:14px 26px;
     border-radius:8px;
-
     text-decoration:none;
-
     margin-right:10px;
-
 }
-
-
 
 .cta.secondary{
-
     background:#fff;
-
-    border:1px solid #cbd5e1;
-
-    color:#0f172a;
-
+    color:#111;
 }
 
-
-
-.hero-img{
-
-    flex:1;
-
-    text-align:center;
-
-}
-
-
-
+/* LOGO */
 .hero-img img{
-
-    max-width:300px;
-
-    width:100%;
-
+    max-width:260px;
+    border-radius:12px;
 }
 
-
-
+/* SECTION */
 .section{
-
-    padding:60px 20px;
-
-}
-
-
-
-.container{
-
-    max-width:1100px;
-
-    margin:auto;
-
-}
-
-
-
-.section-title{
-
+    padding:70px 20px;
     text-align:center;
-
-    font-size:30px;
-
 }
-
-
-
-.section-subtitle{
-
-    text-align:center;
-
-    color:var(--muted);
-
-    margin-bottom:30px;
-
-}
-
-
 
 .grid{
-
     display:grid;
-
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
     gap:20px;
-
+    max-width:1100px;
+    margin:auto;
 }
-
-
 
 .card{
-
     background:#fff;
-
-    padding:20px;
-
+    padding:25px;
     border-radius:10px;
-
-    border:1px solid #e2e8f0;
-
+    border:1px solid #eee;
 }
 
-
-
-.band{
-
-    background:#fff;
-
-    text-align:center;
-
-}
-
-
-
-.contact-band{
-
-    background:#0b1f3a;
-
-    color:#fff;
-
-    text-align:center;
-
-    padding:50px 20px;
-
-}
-
-
-
+/* FOOTER */
 .footer{
-
     text-align:center;
-
-    padding:30px;
-
+    padding:40px;
     background:#fff;
-
 }
 
+.footer img{
+    width:90px;
+}
 </style>
-
-
 
 </head>
 
-
-
 <body>
 
-
-
-<nav class="nav">
-
+<div class="nav">
 <a href="/">Home</a>
-
 <a href="/services/">Services</a>
-
 <a href="/risk-check.html">Supplier Risk Check</a>
-
 <a href="/case-studies.html">Case Studies</a>
-
 <a href="/report-sample.html">Report Sample</a>
-
 <a href="/insights/">Insights</a>
-
 <a href="/contact.html">Contact</a>
 
-
-
 <a href="/risk-check.html" class="cta-nav">Free Audit</a>
-
-</nav>
-
-
-
-<!-- HERO -->
+</div>
 
 <div class="hero">
-
 <div class="hero-inner">
 
-
-
 <div class="hero-text">
-
-<h1>Reduce Your China Sourcing Cost by 10–30%
-
-Without Changing Your Supplier</h1>
-
-
+<h1>Reduce Your China Sourcing Risk Before You Place Orders</h1>
 
 <p>
-
-We help international buyers verify suppliers and avoid costly sourcing mistakes.
-
+We help international buyers verify suppliers, uncover risks, and avoid costly mistakes.
 </p>
 
-
-
 <div class="hero-buttons">
-
 <a class="cta" href="/risk-check.html">Get Free Supplier Risk Check</a>
-
 <a class="cta secondary" href="/services/">Explore Services</a>
-
 </div>
-
 </div>
-
-
 
 <div class="hero-img">
-
-<img src="website_logo.png">
-
-</div>
-
-
-
+<img src="./website_logo.png">
 </div>
 
 </div>
+</div>
 
-
-
-<!-- WHY -->
-
-<section class="section">
-
-<div class="container">
-
-<h2 class="section-title">Why Buyers Work With Us</h2>
-
-<p class="section-subtitle">A practical approach to supplier verification and risk control.</p>
-
-
+<div class="section">
+<h2>Why Buyers Work With Us</h2>
 
 <div class="grid">
-
 <div class="card">
-
 <h3>Independent Checks</h3>
-
 <p>We verify suppliers beyond marketing claims.</p>
-
 </div>
 
-
-
 <div class="card">
-
 <h3>Structured Process</h3>
-
-<p>We follow a clear due diligence framework.</p>
-
+<p>Clear due diligence framework.</p>
 </div>
-
-
 
 <div class="card">
-
 <h3>Risk Detection</h3>
-
-<p>We identify issues before orders are placed.</p>
-
+<p>Identify issues before orders.</p>
 </div>
-
 </div>
-
-
-
 </div>
-
-</section>
-
-
-
-<!-- INSIGHTS -->
-
-<section class="section band">
-
-<div class="container">
-
-<h2 class="section-title">Supply Chain Insights</h2>
-
-<p class="section-subtitle">Analysis on China sourcing risks.</p>
-
-<a class="cta" href="/insights/">Read Insights</a>
-
-</div>
-
-</section>
-
-
-
-<!-- CONTACT -->
-
-<section class="section contact-band">
-
-<h2 class="section-title" style="color:#ffffff;">Need to Verify a Chinese Supplier?</h2>
-
-<p class="section-subtitle" style="color:#cbd5e1;">Contact us to discuss supplier investigation, factory verification, and risk analysis.</p>
-
-<a class="cta" href="/contact.html">Contact Us</a>
-
-</section>
-
-
-
-</body>
-
-</html>
-
-
-
-<!-- FOOTER -->
 
 <div class="footer">
-
-<img src="website_logo.png" style="max-width:140px;"><br><br>
-
-China Supply Chain Advisor
-
+<img src="./website_logo.png">
+<p>China Supply Chain Advisor</p>
 </div>
 
-
-
 </body>
-
 </html>
