@@ -1,188 +1,535 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
+
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>China Supply Chain Advisor</title>
-    <style>
-        :root {
-            --accent: #ff7a18;
-            --text-dark: #1e293b;
-            --text-light: #475569;
-        }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-dark);
-            background: #f7f8fb;
-            overflow-x: hidden;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* 顶部导航：保持简洁，不抢视觉 */
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            background: #fff;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .nav-logo img { height: 45px; display: block; }
-        .nav-links { display: flex; gap: 25px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-size: 14px; font-weight: 500; }
-        .nav-links a:hover { color: var(--accent); }
-        .cta-nav { background: var(--accent); color: #fff !important; padding: 10px 20px; border-radius: 6px; }
+<meta name="robots" content="index,follow">
 
-        /* Hero 容器：全屏背景 + 磨砂质感 */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            min-height: 85vh;
-            background: url('port-bg.jpg') no-repeat center center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 8%;
-        }
 
-        /* 背景蒙层：实现设计稿的朦胧高级感 */
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.5); /* 浅色遮罩 */
-            backdrop-filter: blur(12px); /* 核心模糊效果 */
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 1;
-        }
 
-        /* 主体内容：左文右图，撑开空间 */
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
+<title>China Supply Chain Advisor</title>
 
-        .hero-text { flex: 1; }
-        .hero-text h1 { font-size: 48px; line-height: 1.1; margin-bottom: 20px; color: #0f172a; }
-        .hero-text p { font-size: 20px; color: var(--text-light); margin-bottom: 30px; max-width: 500px; }
-        
-        .hero-img { flex: 1; text-align: right; }
-        .hero-img img { width: 100%; max-width: 450px; } /* 还原原稿无边框大Logo */
 
-        .cta-main {
-            display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            padding: 16px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255,122,24,0.3);
-        }
-        .cta-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255,122,24,0.4); }
 
-        /* 底部悬浮卡片：严控间距和对齐 */
-        .floating-footer-card {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 900px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 35px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            border: 1px solid rgba(255,255,255,0.6);
-        }
+<link rel="icon" href="favicon-32x32.png">
 
-        .footer-brand { flex: 1; }
-        .footer-brand img { height: 65px; margin-bottom: 15px; }
-        .footer-brand p { font-size: 14px; color: var(--text-light); }
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding-left: 50px;
-            border-left: 1px solid #e2e8f0;
-        }
-        .footer-links h4 { font-size: 16px; margin-bottom: 5px; color: var(--text-dark); }
-        .footer-links a { 
-            text-decoration: none; 
-            color: var(--text-light); 
-            font-size: 14px; 
-            transition: 0.2s;
-        }
-        .footer-links a:hover { color: var(--accent); padding-left: 4px; }
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-        /* 响应式调整 */
-        @media (max-width: 968px) {
-            .hero-content { flex-direction: column; text-align: center; }
-            .hero-img { text-align: center; order: -1; }
-            .floating-footer-card { flex-direction: column; align-items: center; text-align: center; gap: 30px; }
-            .footer-links { border-left: none; padding-left: 0; }
-            .hero-text h1 { font-size: 32px; }
-        }
-    </style>
+
+
+<style>
+
+:root{
+
+    --bg:#f7f8fb;
+
+    --accent:#ff7a18;
+
+    --text:#1e293b;
+
+    --muted:#64748b;
+
+    --card:#ffffff;
+
+}
+
+
+
+*{box-sizing:border-box;}
+
+
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    margin:0;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+
+
+.nav{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    width:100%;
+
+    background:#ffffff;
+
+    padding:14px 20px;
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    box-shadow:0 1px 0 rgba(15,23,42,.08);
+
+}
+
+
+
+.nav a{
+
+    color:#0f172a;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+}
+
+
+
+.nav .cta-nav{
+
+    margin-left:auto;
+
+    background:#ff7a18;
+
+    color:#fff;
+
+    padding:8px 14px;
+
+    border-radius:6px;
+
+}
+
+
+
+.hero{
+
+.hero{
+
+    background:#eef3fb;
+
+    color:#0f172a;
+
+    padding:96px 20px 88px;
+
+}
+
+
+
+.hero-inner{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.hero-text{
+
+    flex:1;
+
+    min-width:280px;
+
+}
+
+
+
+.hero-text h1{
+
+    font-size:38px;
+
+    margin:0;
+
+}
+
+
+
+.hero-text p{
+
+    margin-top:16px;
+
+    font-size:18px;
+
+    color:#475569;
+
+}
+
+
+
+.hero-buttons{
+
+    margin-top:24px;
+
+}
+
+
+
+.cta{
+
+    display:inline-block;
+
+    background:#ff7a18;
+
+    color:#fff;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    margin-right:10px;
+
+}
+
+
+
+.cta.secondary{
+
+    background:#fff;
+
+    border:1px solid #cbd5e1;
+
+    color:#0f172a;
+
+}
+
+
+
+.hero-img{
+
+    flex:1;
+
+    text-align:center;
+
+}
+
+
+
+.hero-img img{
+
+    max-width:300px;
+
+    width:100%;
+
+}
+
+
+
+.section{
+
+    padding:60px 20px;
+
+}
+
+
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+
+
+.section-title{
+
+    text-align:center;
+
+    font-size:30px;
+
+}
+
+
+
+.section-subtitle{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    margin-bottom:30px;
+
+}
+
+
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+}
+
+
+
+.card{
+
+    background:#fff;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    border:1px solid #e2e8f0;
+
+}
+
+
+
+.band{
+
+    background:#fff;
+
+    text-align:center;
+
+}
+
+
+
+.contact-band{
+
+    background:#0b1f3a;
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:50px 20px;
+
+}
+
+
+
+.footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#fff;
+
+}
+
+</style>
+
+
+
 </head>
+
+
+
 <body>
 
-    <nav class="nav">
-        <div class="nav-logo"><img src="website_logo.png" alt="Logo"></div>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/services/">Services</a>
-            <a href="/about.html">About</a>
-            <a href="/contact.html">Contact</a>
-            <a href="/risk-check.html" class="cta-nav">Get Free Audit</a>
-        </div>
-    </nav>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Reduce Your China Sourcing Cost by 10–30%</h1>
-                <p>Without Changing Your Supplier. We help brands optimize quality and pricing in China.</p>
-                <a href="/risk-check.html" class="cta-main">Get Free Supplier Audit</a>
-            </div>
-            <div class="hero-img">
-                <img src="website_logo.png" alt="China Supply Chain Advisor">
-            </div>
-        </div>
 
-        <div class="floating-footer-card">
-            <div class="footer-brand">
-                <img src="website_logo.png" alt="Footer Logo">
-                <p>Email: info@chinasupplychainadvisor.com</p>
-                <p style="margin-top:5px; font-size:12px;">© 2026 China Supply Chain Advisor</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <a href="/">Home</a>
-                <a href="/services/">Services</a>
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
-            </div>
-        </div>
-    </section>
+<nav class="nav">
+
+<a href="/">Home</a>
+
+<a href="/services/">Services</a>
+
+<a href="/risk-check.html">Supplier Risk Check</a>
+
+<a href="/case-studies.html">Case Studies</a>
+
+<a href="/report-sample.html">Report Sample</a>
+
+<a href="/insights/">Insights</a>
+
+<a href="/contact.html">Contact</a>
+
+
+
+<a href="/risk-check.html" class="cta-nav">Free Audit</a>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="hero-inner">
+
+
+
+<div class="hero-text">
+
+<h1>Reduce Your China Sourcing Cost by 10–30%
+
+Without Changing Your Supplier</h1>
+
+
+
+<p>
+
+We help international buyers verify suppliers and avoid costly sourcing mistakes.
+
+</p>
+
+
+
+<div class="hero-buttons">
+
+<a class="cta" href="/risk-check.html">Get Free Supplier Risk Check</a>
+
+<a class="cta secondary" href="/services/">Explore Services</a>
+
+</div>
+
+</div>
+
+
+
+<div class="hero-img">
+
+<img src="website_logo.png">
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+<!-- WHY -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">Why Buyers Work With Us</h2>
+
+<p class="section-subtitle">A practical approach to supplier verification and risk control.</p>
+
+
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Independent Checks</h3>
+
+<p>We verify suppliers beyond marketing claims.</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Structured Process</h3>
+
+<p>We follow a clear due diligence framework.</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Risk Detection</h3>
+
+<p>We identify issues before orders are placed.</p>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- INSIGHTS -->
+
+<section class="section band">
+
+<div class="container">
+
+<h2 class="section-title">Supply Chain Insights</h2>
+
+<p class="section-subtitle">Analysis on China sourcing risks.</p>
+
+<a class="cta" href="/insights/">Read Insights</a>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section class="section contact-band">
+
+<h2 class="section-title" style="color:#ffffff;">Need to Verify a Chinese Supplier?</h2>
+
+<p class="section-subtitle" style="color:#cbd5e1;">Contact us to discuss supplier investigation, factory verification, and risk analysis.</p>
+
+<a class="cta" href="/contact.html">Contact Us</a>
+
+</section>
+
+
 
 </body>
+
+</html>
+
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<img src="website_logo.png" style="max-width:140px;"><br><br>
+
+China Supply Chain Advisor
+
+</div>
+
+
+
+</body>
+
 </html>
