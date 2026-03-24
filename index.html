@@ -208,22 +208,96 @@ We help international buyers verify suppliers, uncover risks, and avoid costly m
 
 </div>
 </div>
-<div class="floating-footer-card">
-    <div class="footer-brand">
-        <img src="website_logo.png" alt="Footer Logo">
-        <p>Email: info@chinasupplychainadvisor.com</p>
-        <p class="copyright">© 2026 China Supply Chain Advisor</p>
-    </div>
+/* 容器：半透明、居中、阴影 */
+.floating-footer-card {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto; /* 居中 */
+    background: rgba(255, 255, 255, 0.85); /* 半透明白 */
+    backdrop-filter: blur(15px); /* 毛玻璃效果 */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 35px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
 
-    <div class="footer-links">
-        <h4>Quick Links</h4>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/services/">Services</a>
-            <a href="/about.html">About</a>
-            <a href="/contact.html">Contact</a>
-        </nav>
-    </div>
+/* 左侧品牌区域 */
+.footer-brand {
+    flex: 1;
+}
+
+.footer-brand img {
+    height: 60px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.footer-brand p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 2px 0;
+}
+
+.footer-brand .copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* 右侧链接区域 */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    border-left: 1px solid #e2e8f0; /* 分隔线 */
+}
+
+.footer-links h4 {
+    font-size: 16px;
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+
+.footer-links nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 交互逻辑：鼠标悬停变色 */
+.footer-links a {
+    text-decoration: none;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease; /* 平滑过渡 */
+}
+
+.footer-links a:hover {
+    color: #ff7a18; /* 变橙色 */
+    padding-left: 6px; /* 悬停时轻微右移，增加动感 */
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .floating-footer-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+        gap: 30px;
+    }
+    .footer-links {
+        padding-left: 0;
+        border-left: none;
+    }
+}
 .floating-footer-card {
     position: relative;
     margin: -60px auto 60px; /* 关键：往上浮 */
