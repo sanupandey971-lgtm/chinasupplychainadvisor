@@ -94,6 +94,21 @@ border-radius:10px 0 0 10px;
 
 .card:hover::before{
 width:4px;
+}  
+.card::before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+height:100%;
+width:0;
+background:#ff7a18;
+transition:0.25s;
+border-radius:10px 0 0 10px;
+}
+
+.card:hover::before{
+width:4px;
 }
 .card a{
 text-decoration:none;
@@ -138,28 +153,60 @@ Free preliminary supplier risk review within 24 hours
 
 <div class="grid">
 
+<!-- Fake Factory -->
 <div class="card">
-<a href="how-to-detect-fake-chinese-manufacturers.html">how-to-detect-fake-chinese-manufacturers</a>
+<a href="/insights/Securing the Supply Chain: From Zero-Trust Verification to Ground Reality.html">
+How to Detect Fake Chinese Manufacturers
+</a>
+<p class="card-desc">
+Many “factories” are merely trading fronts with no real production capability or assets.
+</p>
+<div class="card-tags">
+<span>Factory Audit</span>
+<span>Fraud Risk</span>
+</div>
 </div>
 
+<!-- Capacity Trap -->
 <div class="card">
-<a href="how-to-verify-chinese-factory-profiles-capacity.html">how-to-verify-chinese-factory-profiles-capacity</a>
+<a href="/insights/How to Avoid Fake Factory China.html">
+How to Verify Real Factory Production Capacity
+</a>
+<p class="card-desc">
+Suppliers often exaggerate capacity while secretly relying on unauthorized subcontracting.
+</p>
+<div class="card-tags">
+<span>Capacity Audit</span>
+<span>Subcontracting Risk</span>
+</div>
 </div>
 
+<!-- Golden Sample -->
 <div class="card">
-<a href="signs-a-chinese-factory-is-not-real.html">signs-a-chinese-factory-is-not-real</a>
+<a href="/insights/Golden Sample Quality Failure China.html">
+The “Golden Sample” Trap in Manufacturing
+</a>
+<p class="card-desc">
+Approved samples rarely match mass production, masking material substitution and quality fade.
+</p>
+<div class="card-tags">
+<span>Material Fraud</span>
+<span>Quality Risk</span>
+</div>
 </div>
 
+<!-- Trading Intermediary -->
 <div class="card">
-<a href="trading-company-vs-real-factory-in-china.html">trading-company-vs-real-factory-in-china</a>
+<a href="/insights/How to Identify a Trading Company in China.html">
+Trading Company vs Real Factory in China
+</a>
+<p class="card-desc">
+Many suppliers operate as intermediaries, hiding the real manufacturer and control risks.
+</p>
+<div class="card-tags">
+<span>Supplier Transparency</span>
+<span>Hidden Chain Risk</span>
 </div>
-
-<div class="card">
-<a href="how-subcontracting-damages-product-quality.html">how-subcontracting-damages-product-quality</a>
-</div>
-
-<div class="card">
-<a href="common-quality-control-failures.html">common-quality-control-failures</a>
 </div>
 
 </div>
