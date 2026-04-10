@@ -112,7 +112,8 @@
     </article>
 <div style="text-align:center; margin:50px 0;">
 
-    <a href="/case-studies.html"
+    <a href="/insights/index.html"
+       id="backBtn"
        style="
        display:inline-block;
        padding:14px 30px;
@@ -122,7 +123,7 @@
        border-radius:10px;
        font-weight:600;
        ">
-      ← Back to Case Studies
+      ← Back
     </a>
 
     <a href="/risk-check.html"
@@ -142,5 +143,24 @@
 
 </div>
 
+<script>
+(function() {
+    const btn = document.getElementById("backBtn");
+    const ref = document.referrer;
+
+    if (ref.includes('/insights')) {
+        btn.href = '/insights/index.html';
+        btn.innerText = '← Back to Insights';
+    } 
+    else if (ref.includes('/case-studies')) {
+        btn.href = '/case-studies.html';
+        btn.innerText = '← Back to Case Studies';
+    } 
+    else {
+        btn.href = 'javascript:history.back()';
+        btn.innerText = '← Back';
+    }
+})();
+</script>
 </body>
 </html>
